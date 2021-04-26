@@ -54,19 +54,19 @@ public class DeterminarBotonPulsado extends Application {
 			Font tipoLetra = Font.font("Arial", 16);
 			bt1 = new Button("Botón 1");
 			bt1.setFont(tipoLetra);
-			bt1.setOnAction(e -> botonPulsado(e));
-			bt1.setOnMouseEntered(e -> ponerSombra(e));
-			bt1.setOnMouseExited(e-> quitarSombra(e));
+			bt1.setOnAction(this::botonPulsado);
+			bt1.setOnMouseEntered(this::ponerSombra);
+			bt1.setOnMouseExited(this::quitarSombra);
 			bt2 = new Button("Botón 2");
 			bt2.setFont(tipoLetra);
-			bt2.setOnAction(e -> botonPulsado(e));
-			bt2.setOnMouseEntered(e -> ponerSombra(e));
-			bt2.setOnMouseExited(e-> quitarSombra(e));
+			bt2.setOnAction(this::botonPulsado);
+			bt2.setOnMouseEntered(this::ponerSombra);
+			bt2.setOnMouseExited(this::quitarSombra);
 			bt3 = new Button("Botón 3");
 			bt3.setFont(tipoLetra);
-			bt3.setOnAction(e -> botonPulsado(e));
-			bt3.setOnMouseEntered(e -> ponerSombra(e));
-			bt3.setOnMouseExited(e-> quitarSombra(e));
+			bt3.setOnAction(this::botonPulsado);
+			bt3.setOnMouseEntered(this::ponerSombra);
+			bt3.setOnMouseExited(this::quitarSombra);
 			hbBotones.getChildren().addAll(bt1, bt2, bt3);
 			
 			etiqueta = new Label();

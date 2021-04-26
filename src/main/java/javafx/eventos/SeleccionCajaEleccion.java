@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.recursos.LocalizadorRecursos;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -19,9 +20,9 @@ public class SeleccionCajaEleccion extends Application {
 	private ChoiceBox<String> cbOpciones;
 	private ImageView ivIcono;
 	
-	private Image imgCerveza = new Image(getClass().getResourceAsStream("../imagenes/iconoCerveza.png"), 100, 100, true, true);
-	private Image imgCaca = new Image(getClass().getResourceAsStream("../imagenes/iconoCaca.png"), 100, 100, true, true);
-	private Image imgApagar = new Image(getClass().getResourceAsStream("../imagenes/iconoApagar.png"), 100, 100, true, true);
+	private Image imgCerveza = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCerveza.png"), 100, 100, true, true);
+	private Image imgCaca = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCaca.png"), 100, 100, true, true);
+	private Image imgApagar = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoApagar.png"), 100, 100, true, true);
 	
 	private void muestraIcono() {
 		String seleccion = cbOpciones.valueProperty().getValue();

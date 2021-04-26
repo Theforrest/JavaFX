@@ -1,7 +1,6 @@
 package javafx.controles;
 
 import javafx.application.Application;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -17,28 +16,28 @@ import javafx.stage.Stage;
 public class VistaTabla extends Application {
 	
 	public static class Personaje {
-		private final SimpleStringProperty nombre;
-		private final SimpleStringProperty apellidos;
+		private String nombre;
+		private String apellidos;
 
 		private Personaje(String nombre, String apellidos) {
-			this.nombre = new SimpleStringProperty(nombre);
-			this.apellidos = new SimpleStringProperty(apellidos);
+			this.nombre = nombre;
+			this.apellidos = apellidos;
 		}
 
 		public String getNombre() {
-			return nombre.get();
+			return nombre;
 		}
 
 		public void setNombre(String nombre) {
-			this.nombre.set(nombre);
+			this.nombre = nombre;
 		}
 
 		public String getApellidos() {
-			return apellidos.get();
+			return apellidos;
 		}
 
 		public void setApellidos(String apellidos) {
-			this.apellidos.set(apellidos);
+			this.apellidos = apellidos;
 		}
 
 	}
@@ -85,5 +84,4 @@ public class VistaTabla extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-
 }

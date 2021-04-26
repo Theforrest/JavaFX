@@ -48,13 +48,13 @@ public class TablaPersonajes extends Application {
 			tvPersonajes.getColumns().add(cEstrategia);
 			
 			cNombre.setMinWidth(100);
-			cNombre.setCellValueFactory(new PropertyValueFactory<Personaje, String>("nombre"));
+			cNombre.setCellValueFactory(new PropertyValueFactory<>("nombre")); 
 			cPoder.setMinWidth(20);
-			cPoder.setCellValueFactory(new PropertyValueFactory<Personaje, Integer>("poder"));
+			cPoder.setCellValueFactory(new PropertyValueFactory<>("poder"));
 			cSuperpoder.setMinWidth(40);
-			cSuperpoder.setCellValueFactory(new PropertyValueFactory<Personaje, Boolean>("superpoder"));
+			cSuperpoder.setCellValueFactory(new PropertyValueFactory<>("superpoder"));
 			cEstrategia.setMinWidth(60);
-			cEstrategia.setCellValueFactory(new PropertyValueFactory<Personaje, Estrategia>("estrategia"));
+			cEstrategia.setCellValueFactory(new PropertyValueFactory<>("estrategia"));
 			
 			raiz.getChildren().addAll(lbPersonajes, tvPersonajes);
 			

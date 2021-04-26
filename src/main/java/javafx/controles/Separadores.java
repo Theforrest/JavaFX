@@ -26,9 +26,9 @@ public class Separadores extends Application {
 			
 			ComboBox<Object> cbExtras = new ComboBox<>();
 			Separator separador = new Separator();
-			ObservableList<Object> diasSemana = FXCollections.observableArrayList(
+			ObservableList<Object> dias = FXCollections.observableArrayList(
 					"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", separador, "Sábado", "Domingo");
-			cbExtras.getItems().addAll(diasSemana);
+			cbExtras.getItems().addAll(dias);
 			
 			raiz.getChildren().addAll(lbElige, cbExtras);
 			

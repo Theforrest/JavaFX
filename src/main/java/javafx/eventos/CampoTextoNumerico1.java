@@ -8,7 +8,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -19,15 +18,12 @@ public class CampoTextoNumerico1 extends Application {
 	private Label lbInfo;
 	private TextField tfNumerico;
 	
-	private void compruebaNumero(KeyEvent e) {	
-		String texto = tfNumerico.getText();
-		int longitud = texto.length();
-		if ((texto + e.getCharacter()).matches("[0-9]*(\\.[0-9]*)?") || Character.isISOControl(e.getCharacter().charAt(0))) {
-			longitud = (Character.isISOControl(e.getCharacter().charAt(0)) ? longitud : longitud + 1);
-			lbInfo.setText("Longitud: " + longitud + " caracteres");
+	private void compruebaNumero(String textoAntiguo, String textoNuevo) {	
+		if (textoNuevo.matches("[0-9]*(\\.[0-9]*)?")) {
+			lbInfo.setText("Longitud: " + textoNuevo.length() + " caracteres");
 		}
 		else {
-			e.consume();
+			tfNumerico.setText(textoAntiguo);
 			Toolkit.getDefaultToolkit().beep();
 		}
 	}
@@ -47,7 +43,7 @@ public class CampoTextoNumerico1 extends Application {
 			lbTexto.setWrapText(true);
 			lbTexto.setFont(Font.font("Arial", 14));
 			tfNumerico = new TextField();
-			tfNumerico.setOnKeyTyped(e -> compruebaNumero(e));
+			tfNumerico.textProperty().addListener((observable, oldValue, newValue) -> compruebaNumero(oldValue, newValue));
 			hbTexto.getChildren().addAll(lbTexto, tfNumerico);
 			
 			lbInfo = new Label("Longitud: 0 caracteres");

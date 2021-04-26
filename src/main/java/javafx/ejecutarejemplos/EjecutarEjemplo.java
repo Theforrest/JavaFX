@@ -30,11 +30,29 @@ import javafx.controles.VistaArbol;
 import javafx.controles.VistaLista;
 import javafx.controles.VistaTabla;
 import javafx.controles.VistaTablaArbol;
-import javafx.controles.VistaTablaSinPropiedades;
 import javafx.event.ActionEvent;
 import javafx.eventos.CampoTextoLongitudMaxima;
+import javafx.eventos.CampoTextoNumerico1;
+import javafx.eventos.CampoTextoNumerico2;
 import javafx.eventos.DeterminarBotonPulsado;
+import javafx.eventos.Dialogos;
+import javafx.eventos.ListaColores1;
+import javafx.eventos.ListaColores2;
+import javafx.eventos.ListaColores3;
+import javafx.eventos.PosicionRaton;
 import javafx.eventos.PulsacionesBoton;
+import javafx.eventos.SeleccionCajaEleccion;
+import javafx.eventos.SeleccionCasillaVerificacion;
+import javafx.eventos.SeleccionRadioBoton;
+import javafx.eventos.TablaPersonajes;
+import javafx.eventos.TablaPersonajesCompleta;
+import javafx.eventos.TablaPersonajesPersonalizada;
+import javafx.eventos.TablaPersonajesPropiedades;
+import javafx.eventos.TablaPersonajesPropiedadesCompleta;
+import javafx.eventos.TablaPersonajesPropiedadesPersonalizada;
+import javafx.eventos.ValorDeslizador1;
+import javafx.eventos.ValorDeslizador2;
+import javafx.eventos.ValorDeslizador3;
 import javafx.fxml.FXML;
 import javafx.manejadores.ManejadorClase;
 import javafx.manejadores.ManejadorClaseAnonima;
@@ -82,8 +100,7 @@ public class EjecutarEjemplo {
 			new Opcion("Vista de árbol", VistaArbol.class), 
 			new Opcion("Vista de lista", VistaLista.class),
 			new Opcion("Vista de tabla en árbol", VistaTablaArbol.class), 
-			new Opcion("Vista de tabla con propiedades", VistaTabla.class),
-			new Opcion("Vista de tabla sin propiedades", VistaTablaSinPropiedades.class)
+			new Opcion("Vista de tabla", VistaTabla.class)
 		);
 	private static final ObservableList<Opcion> PANELES = FXCollections.observableArrayList(
 			new Opcion("Panel", Panel.class),
@@ -99,7 +116,8 @@ public class EjecutarEjemplo {
 			new Opcion("Estilos en nodos", EstilosNodos.class)
 		);
 	private static final ObservableList<Opcion> FXML = FXCollections.observableArrayList(
-			new Opcion("Aplicación principal", MainApp.class)
+			new Opcion("Aplicación principal FXML", MainApp.class),
+			new Opcion("Comunicación de ventanas", javafx.comunicacionventanas.MainApp.class)
 		);
 	private static final ObservableList<Opcion> MANEJADORES = FXCollections.observableArrayList(
 			new Opcion("Manejador de clase", ManejadorClase.class),
@@ -110,7 +128,26 @@ public class EjecutarEjemplo {
 	private static final ObservableList<Opcion> EVENTOS = FXCollections.observableArrayList(
 			new Opcion("Pulsaciones botón", PulsacionesBoton.class),
 			new Opcion("Determinar el botón pulsado", DeterminarBotonPulsado.class),
-			new Opcion("Campo de texto longitud máxima", CampoTextoLongitudMaxima.class)
+			new Opcion("Campo de texto longitud máxima", CampoTextoLongitudMaxima.class),
+			new Opcion("Campo de texto numérico 1", CampoTextoNumerico1.class),
+			new Opcion("Campo de texto numérico 2", CampoTextoNumerico2.class),
+			new Opcion("Determinar radio botón seleccionado", SeleccionRadioBoton.class),
+			new Opcion("Determinar opción elegida en caja de elección", SeleccionCajaEleccion.class),
+			new Opcion("Determinar selección en casillas de verificación", SeleccionCasillaVerificacion.class),
+			new Opcion("Mostrar posición del ratón", PosicionRaton.class),
+			new Opcion("Mostrar valor de un deslizador 1", ValorDeslizador1.class),
+			new Opcion("Mostrar valor de un deslizador 2", ValorDeslizador2.class),
+			new Opcion("Mostrar valor de un deslizador 3", ValorDeslizador3.class),
+			new Opcion("Lista de colores 1", ListaColores1.class),
+			new Opcion("Lista de colores 2", ListaColores2.class),
+			new Opcion("Lista de colores 3", ListaColores3.class),
+			new Opcion("Mostrar dialogos", Dialogos.class),
+			new Opcion("Tabla de personajes", TablaPersonajes.class),
+			new Opcion("Tabla de pesonajes personalizada", TablaPersonajesPersonalizada.class),
+			new Opcion("Tabla de personajes completa", TablaPersonajesCompleta.class),
+			new Opcion("Tabla de personajes con propiedades", TablaPersonajesPropiedades.class),
+			new Opcion("Tabla de pesonajes con propiedades personalizada", TablaPersonajesPropiedadesPersonalizada.class),
+			new Opcion("Tabla de personajes con propiedades completa", TablaPersonajesPropiedadesCompleta.class)
 		);
 	
 	@FXML ToggleGroup tgCategoria;

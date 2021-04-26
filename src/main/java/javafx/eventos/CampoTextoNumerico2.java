@@ -1,7 +1,5 @@
 package javafx.eventos;
 
-import java.awt.Toolkit;
-
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -18,14 +16,13 @@ public class CampoTextoNumerico2 extends Application {
 	private Label lbInfo;
 	private TextField tfNumerico;
 	
-	private void compruebaNumero(String oldValue) {	
-		String texto = tfNumerico.getText();
+	private void compruebaNumero(String texto) {	
 		if (texto.matches("[0-9]*(\\.[0-9]*)?")) {
 			lbInfo.setText("Longitud: " + texto.length() + " caracteres");
+			tfNumerico.setStyle("-fx-border-color: green");
 		}
 		else {
-			tfNumerico.setText(oldValue);
-			Toolkit.getDefaultToolkit().beep();
+			tfNumerico.setStyle("-fx-border-color: red");
 		}
 	}
 
@@ -44,7 +41,7 @@ public class CampoTextoNumerico2 extends Application {
 			lbTexto.setWrapText(true);
 			lbTexto.setFont(Font.font("Arial", 14));
 			tfNumerico = new TextField();
-			tfNumerico.textProperty().addListener((observable, oldValue, newValue) -> compruebaNumero(oldValue));
+			tfNumerico.textProperty().addListener((observable, oldValue, newValue) -> compruebaNumero(newValue));
 			hbTexto.getChildren().addAll(lbTexto, tfNumerico);
 			
 			lbInfo = new Label("Longitud: 0 caracteres");

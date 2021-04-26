@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="267.0" prefWidth="274.0" spacing="30.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.aplicacionfxml.controladores.Ejemplo">
+<VBox alignment="CENTER" prefHeight="267.0" prefWidth="274.0" spacing="30.0" stylesheets="@../estilos/aplicacion.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.aplicacionfxml.controladores.Ejemplo">
    <children>
       <Label text="Ejemplo de aplicacion utilizando FXML" textAlignment="CENTER" textFill="#0f62f2" wrapText="true">
          <font>

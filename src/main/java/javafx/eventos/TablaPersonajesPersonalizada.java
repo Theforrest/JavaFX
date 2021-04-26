@@ -67,11 +67,11 @@ public class TablaPersonajesPersonalizada extends Application {
 			tvPersonajes.setEditable(true);
 			
 			cNombre.setMinWidth(100);
-			cNombre.setCellValueFactory(new PropertyValueFactory<Personaje, String>("nombre"));
+			cNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 			cNombre.setCellFactory(TextFieldTableCell.forTableColumn());
 			cNombre.setOnEditCommit(e -> System.out.println(e.getNewValue()));
 			cPoder.setMinWidth(20);
-			cPoder.setCellValueFactory(new PropertyValueFactory<Personaje, Integer>("poder"));
+			cPoder.setCellValueFactory(new PropertyValueFactory<>("poder"));
 			cPoder.setCellFactory(fila -> new TextFieldTableCell<>(new ConvierteEnteroCadena()));
 			cPoder.setOnEditCommit(e -> System.out.println(e.getNewValue()));
 			cSuperpoder.setMinWidth(40);
@@ -85,7 +85,7 @@ public class TablaPersonajesPersonalizada extends Application {
 			});
 			cSuperpoder.setCellFactory(fila -> new CheckBoxTableCell<>());
 			cEstrategia.setMinWidth(60);
-			cEstrategia.setCellValueFactory(new PropertyValueFactory<Personaje, Estrategia>("estrategia"));
+			cEstrategia.setCellValueFactory(new PropertyValueFactory<>("estrategia"));
 			cEstrategia.setCellFactory(fila -> new ChoiceBoxTableCell<Personaje, Estrategia>(Estrategia.values()));
 			cEstrategia.setOnEditCommit(e -> System.out.println(e.getNewValue()));
 			

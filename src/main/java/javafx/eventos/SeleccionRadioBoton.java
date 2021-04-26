@@ -3,6 +3,7 @@ package javafx.eventos;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.recursos.LocalizadorRecursos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -22,9 +23,9 @@ public class SeleccionRadioBoton extends Application {
 	private ImageView ivIcono;
 	private ToggleGroup grupo;
 	
-	private Image imgCerveza = new Image(getClass().getResourceAsStream("../imagenes/iconoCerveza.png"), 100, 100, true, true);
-	private Image imgCaca = new Image(getClass().getResourceAsStream("../imagenes/iconoCaca.png"), 100, 100, true, true);
-	private Image imgApagar = new Image(getClass().getResourceAsStream("../imagenes/iconoApagar.png"), 100, 100, true, true);
+	private Image imgCerveza = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCerveza.png"), 100, 100, true, true);
+	private Image imgCaca = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCaca.png"), 100, 100, true, true);
+	private Image imgApagar = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoApagar.png"), 100, 100, true, true);
 	
 	private void muestraIcono() {
 		RadioButton seleccionado = (RadioButton)grupo.getSelectedToggle();

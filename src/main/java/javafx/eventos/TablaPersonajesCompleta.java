@@ -104,7 +104,7 @@ public class TablaPersonajesCompleta extends Application {
 			tvPersonajes.setMinWidth(360);
 			
 			cNombre.setMinWidth(100);
-			cNombre.setCellValueFactory(new PropertyValueFactory<Personaje, String>("nombre"));
+			cNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 			cNombre.setCellFactory(TextFieldTableCell.forTableColumn());
 			cNombre.setOnEditCommit(e -> {
 				int indice = PERSONAJES.indexOf(e.getRowValue());
@@ -113,7 +113,7 @@ public class TablaPersonajesCompleta extends Application {
 				filaCambiada(e.getRowValue());
 			});
 			cPoder.setMinWidth(20);
-			cPoder.setCellValueFactory(new PropertyValueFactory<Personaje, Integer>("poder"));
+			cPoder.setCellValueFactory(new PropertyValueFactory<>("poder"));
 			cPoder.setCellFactory(TextFieldTableCell.<Personaje, Integer>forTableColumn(new ConvierteEnteroCadena()));
 			cPoder.setOnEditCommit(e -> {
 				int indice = PERSONAJES.indexOf(e.getRowValue());
@@ -122,7 +122,7 @@ public class TablaPersonajesCompleta extends Application {
 				filaCambiada(e.getRowValue());
 			});
 			cSuperpoder.setMinWidth(40);
-						cSuperpoder.setCellValueFactory(new PropertyValueFactory<Personaje, Boolean>("superpoder"));
+						cSuperpoder.setCellValueFactory(new PropertyValueFactory<>("superpoder"));
 			cSuperpoder.setCellFactory(superPoder -> new CheckBoxTableCell<>());
 			cSuperpoder.setCellValueFactory(fila -> {
 				BooleanProperty superpoderProperty = new SimpleBooleanProperty(fila.getValue().isSuperpoder());
@@ -135,7 +135,7 @@ public class TablaPersonajesCompleta extends Application {
 				return superpoderProperty;
 			});
 			cEstrategia.setMinWidth(60);
-			cEstrategia.setCellValueFactory(new PropertyValueFactory<Personaje, Estrategia>("estrategia"));
+			cEstrategia.setCellValueFactory(new PropertyValueFactory<>("estrategia"));
 			cEstrategia.setCellFactory(estrategia -> new ChoiceBoxTableCell<Personaje, Estrategia>(Estrategia.values()));
 			cEstrategia.setOnEditCommit(e -> {
 				int indice = PERSONAJES.indexOf(e.getRowValue());
