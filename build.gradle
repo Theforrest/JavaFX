@@ -18,6 +18,7 @@ javafx {
 mainClassName = 'javafx.MainApp'
 
 jar {
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 	manifest {
 		attributes 'Main-Class': 'javafx.LanzadorMainApp'
 	}

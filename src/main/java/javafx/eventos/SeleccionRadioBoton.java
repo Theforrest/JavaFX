@@ -23,18 +23,19 @@ public class SeleccionRadioBoton extends Application {
 	private ImageView ivIcono;
 	private ToggleGroup grupo;
 	
-	private Image imgCerveza = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCerveza.png"), 100, 100, true, true);
-	private Image imgCaca = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCaca.png"), 100, 100, true, true);
-	private Image imgApagar = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoApagar.png"), 100, 100, true, true);
+	private static final Image CERVEZA = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCerveza.png"), 100, 100, true, true);
+	private static final Image CACA = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCaca.png"), 100, 100, true, true);
+	private static final Image APAGAR = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoApagar.png"), 100, 100, true, true);
 	
-	private void muestraIcono() {
+	private void mostrarIcono() {
 		RadioButton seleccionado = (RadioButton)grupo.getSelectedToggle();
-		if (seleccionado == rbCerveza)
-			ivIcono.setImage(imgCerveza);
-		else if (seleccionado == rbCaca)
-			ivIcono.setImage(imgCaca);
-		else if (seleccionado == rbApagar)
-			ivIcono.setImage(imgApagar);
+		if (seleccionado == rbCerveza) {
+			ivIcono.setImage(CERVEZA);
+		} else if (seleccionado == rbCaca) {
+			ivIcono.setImage(CACA);
+		} else if (seleccionado == rbApagar) {
+			ivIcono.setImage(APAGAR);
+		}
 	}
 
 	@Override
@@ -61,11 +62,11 @@ public class SeleccionRadioBoton extends Application {
 			rbCerveza.setToggleGroup(grupo);
 			rbCaca.setToggleGroup(grupo);
 			rbApagar.setToggleGroup(grupo);
-			grupo.selectedToggleProperty().addListener((observable, oldValue, newValue) -> muestraIcono());
+			grupo.selectedToggleProperty().addListener((observable, oldValue, newValue) -> mostrarIcono());
 			vbOpcioes.getChildren().addAll(lbElige, rbCerveza, rbCaca, rbApagar);
 			
 			ivIcono = new ImageView();
-			ivIcono.setImage(imgCaca);
+			ivIcono.setImage(CACA);
 			
 			raiz.getChildren().addAll(vbOpcioes, ivIcono);
 			

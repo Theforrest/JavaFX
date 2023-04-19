@@ -49,7 +49,7 @@ public class ListaColores3 extends Application {
 	private Color nuevoColor = Color.WHITE;	
 		
 	
-	private void muestraColor(String color) {
+	private void mostrarColor(String color) {
 		if (color != null) {
 			panel.setStyle(ESTILO_PANEL + "-fx-background-color: " + color + ";");
 			lvColores.getSelectionModel().select(color);
@@ -60,7 +60,7 @@ public class ListaColores3 extends Application {
 		String color = nuevoColor.toString().replace("0x", "#");
 		if (color != null && !COLORES.contains(color)) {
 			COLORES.add(0, color);
-			muestraColor(color);
+			mostrarColor(color);
 		}
 	}
 	
@@ -87,7 +87,7 @@ public class ListaColores3 extends Application {
 			lvColores = new ListView<>(COLORES);
 			lvColores.setPrefWidth(80);
 			lvColores.getSelectionModel().select("Red");
-			lvColores.getSelectionModel().selectedItemProperty().addListener((ov, viejo, nuevo) -> muestraColor(nuevo));
+			lvColores.getSelectionModel().selectedItemProperty().addListener((ov, viejo, nuevo) -> mostrarColor(nuevo));
 			lvColores.setCellFactory(l -> new CeldaColor());
 			
 			HBox hbAnadir = new HBox(10);

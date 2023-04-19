@@ -20,18 +20,19 @@ public class SeleccionCajaEleccion extends Application {
 	private ChoiceBox<String> cbOpciones;
 	private ImageView ivIcono;
 	
-	private Image imgCerveza = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCerveza.png"), 100, 100, true, true);
-	private Image imgCaca = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCaca.png"), 100, 100, true, true);
-	private Image imgApagar = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoApagar.png"), 100, 100, true, true);
+	private static final Image CERVEZA = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCerveza.png"), 100, 100, true, true);
+	private static final Image CACA = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCaca.png"), 100, 100, true, true);
+	private static final Image APAGAR = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoApagar.png"), 100, 100, true, true);
 	
-	private void muestraIcono() {
+	private void mostrarIcono() {
 		String seleccion = cbOpciones.valueProperty().getValue();
-		if (seleccion.equals("Cerveza"))
-			ivIcono.setImage(imgCerveza);
-		else if (seleccion.equals("Caca"))
-			ivIcono.setImage(imgCaca);
-		else if (seleccion.equals("Apagar"))
-			ivIcono.setImage(imgApagar);
+		if (seleccion.equals("Cerveza")) {
+			ivIcono.setImage(CERVEZA);
+		} else if (seleccion.equals("Caca")) {
+			ivIcono.setImage(CACA);
+		} else if (seleccion.equals("Apagar")) {
+			ivIcono.setImage(APAGAR);
+		}
 	}
 
 	@Override
@@ -49,11 +50,11 @@ public class SeleccionCajaEleccion extends Application {
 			lbElige.setFont(Font.font(20));
 			cbOpciones = new ChoiceBox<>(FXCollections.observableArrayList("Cerveza", "Caca", "Apagar"));
 			cbOpciones.getSelectionModel().select("Caca");
-			cbOpciones.valueProperty().addListener((observable, oldValue, newValue) -> muestraIcono());
+			cbOpciones.valueProperty().addListener((observable, oldValue, newValue) -> mostrarIcono());
 			hbOpciones.getChildren().addAll(lbElige, cbOpciones);
 			
 			ivIcono = new ImageView();
-			ivIcono.setImage(imgCaca);
+			ivIcono.setImage(CACA);
 			
 			raiz.getChildren().addAll(hbOpciones, ivIcono);
 			

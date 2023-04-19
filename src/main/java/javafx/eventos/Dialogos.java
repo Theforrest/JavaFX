@@ -214,7 +214,7 @@ public class Dialogos extends Application {
 	}
 	
 	private void compruebaNumero(String nuevoPoder, String viejoPoder) {	
-		if (nuevoPoder.matches("[0-9]*(\\.[0-9]*)?")) {
+		if (nuevoPoder.matches("\\d*(\\.\\d*)?")) {
 			int poder = (nuevoPoder.isEmpty()) ? 0 :Integer.parseInt(nuevoPoder);
 			if (poder < 0 || poder > 100) {
 				tfPoder.setText(viejoPoder);
@@ -228,24 +228,25 @@ public class Dialogos extends Application {
 	
 	private void mostrarDialogo() {
 		RadioButton rbSeleccionado = (RadioButton)grupo.getSelectedToggle();
-		if (rbSeleccionado == rbInformacion) 
+		if (rbSeleccionado == rbInformacion) {
 			mostrarDialogoInformacion();
-		else if (rbSeleccionado == rbInformacionSinCabecera)
+		} else if (rbSeleccionado == rbInformacionSinCabecera) {
 			mostrarDialogoInformacionSinCabecera();
-		else if (rbSeleccionado == rbAdvertencia)
+		} else if (rbSeleccionado == rbAdvertencia) {
 			mostrarDialogoAdvertencia();
-		else if (rbSeleccionado == rbError)
+		} else if (rbSeleccionado == rbError) {
 			mostrarDialogError();
-		else if (rbSeleccionado == rbConfirmacion)
+		} else if (rbSeleccionado == rbConfirmacion) {
 			mostrarDialogoConfirmacion();
-		else if (rbSeleccionado == rbConfirmacionPersonalizado)
+		} else if (rbSeleccionado == rbConfirmacionPersonalizado) {
 			mostrarDialogoConfirmacionPersonalizado();
-		else if (rbSeleccionado == rbEntradaTexto)
+		} else if (rbSeleccionado == rbEntradaTexto) {
 			mostrarDialogoEntradaTexto();
-		else if (rbSeleccionado == rbEleccion)
+		} else if (rbSeleccionado == rbEleccion) {
 			mostrarDialogoEleccion();
-		else if (rbSeleccionado == rbPersonalizado)
+		} else if (rbSeleccionado == rbPersonalizado) {
 			mostrarDialogoPersonalizado();
+		}
 	}
 	
 	private void mostrarDialogoSalir(Stage escenario, WindowEvent e) {

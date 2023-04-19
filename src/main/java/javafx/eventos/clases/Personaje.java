@@ -1,8 +1,7 @@
 package javafx.eventos.clases;
 
-import java.util.Objects;
-
 public class Personaje {
+	
 	public enum Estrategia {
 		RISA,
 		MALHUMOR,
@@ -51,27 +50,6 @@ public class Personaje {
 	
 	public void setEstrategia(Estrategia estrategia) {
 		this.estrategia = estrategia;
-	}
-	
-	@Override
-	public int hashCode() {
-		return Objects.hash(estrategia, nombre, poder, superpoder);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (!(obj instanceof Personaje)) {
-			return false;
-		}
-		Personaje other = (Personaje) obj;
-		return estrategia == other.estrategia && Objects.equals(nombre, other.nombre) && poder == other.poder
-				&& superpoder == other.superpoder;
 	}
 
 	public String toString() {

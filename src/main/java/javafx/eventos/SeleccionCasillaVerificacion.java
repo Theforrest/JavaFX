@@ -24,26 +24,26 @@ public class SeleccionCasillaVerificacion extends Application {
 	private ImageView ivCaca;
 	private ImageView ivApagar;
 	
-	private Image imgCerveza = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCerveza.png"), 100, 100, true, true);
-	private Image imgCaca = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCaca.png"), 100, 100, true, true);
-	private Image imgApagar = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoApagar.png"), 100, 100, true, true);
+	private static final Image CERVEZA = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCerveza.png"), 100, 100, true, true);
+	private static final Image CACA = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCaca.png"), 100, 100, true, true);
+	private static final Image APAGAR = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoApagar.png"), 100, 100, true, true);
 	
-	private void muestraIconos(ActionEvent e) {
+	private void mostrarIconos(ActionEvent e) {
 		CheckBox pulsado = (CheckBox)e.getSource();
-		ImageView iv = null;
-		Image img = null;
+		ImageView ivDestino = null;
+		Image imgDestino = null;
 		if (pulsado == cbCerveza) {
-			iv = ivCerveza;
-			img = imgCerveza;
+			ivDestino = ivCerveza;
+			imgDestino = CERVEZA;
 		} else if (pulsado == cbCaca) {
-			iv = ivCaca;
-			img = imgCaca;
+			ivDestino = ivCaca;
+			imgDestino = CACA;
 		} else if (pulsado == cbApagar) {
-			iv = ivApagar;
-			img = imgApagar;
+			ivDestino = ivApagar;
+			imgDestino = APAGAR;
 		}
-		if (iv != null) {
-			iv.setImage(pulsado.isSelected() ? img : null);
+		if (ivDestino != null) {
+			ivDestino.setImage(pulsado.isSelected() ? imgDestino : null);
 		}
 	}
 
@@ -60,11 +60,11 @@ public class SeleccionCasillaVerificacion extends Application {
 			Label lbElige = new Label("Elige los iconos a mostrar:");
 			lbElige.setFont(Font.font(20));
 			cbCerveza = new CheckBox("Cerveza");
-			cbCerveza.setOnAction(e -> muestraIconos(e));
+			cbCerveza.setOnAction(this::mostrarIconos);
 			cbCaca = new CheckBox("Caca");
-			cbCaca.setOnAction(e -> muestraIconos(e));
+			cbCaca.setOnAction(this::mostrarIconos);
 			cbApagar = new CheckBox("Apagar");
-			cbApagar.setOnAction(e -> muestraIconos(e));
+			cbApagar.setOnAction(this::mostrarIconos);
 			Insets margen = new Insets(0, 0, 0, 20);
 			VBox.setMargin(cbCerveza, margen);
 			VBox.setMargin(cbCaca, margen);

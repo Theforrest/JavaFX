@@ -16,9 +16,9 @@ public class CampoTextoNumerico3 extends Application {
 	private Label lbInfo;
 	private TextField tfNumerico;
 	
-	private void compruebaNumero() {	
+	private void comprobarNumero() {	
 		String texto = tfNumerico.getText();
-		if (texto.matches("[0-9]*(\\.[0-9]*)?")) {
+		if (texto.matches("\\d*(\\.\\d*)?")) {
 			lbInfo.setText("Longitud: " + texto.length() + " caracteres");
 			tfNumerico.setStyle("-fx-border-color: green");
 		}
@@ -42,7 +42,7 @@ public class CampoTextoNumerico3 extends Application {
 			lbTexto.setWrapText(true);
 			lbTexto.setFont(Font.font("Arial", 14));
 			tfNumerico = new TextField();
-			tfNumerico.textProperty().addListener((observable, oldValue, newValue) -> compruebaNumero());
+			tfNumerico.textProperty().addListener((observable, oldValue, newValue) -> comprobarNumero());
 			hbTexto.getChildren().addAll(lbTexto, tfNumerico);
 			
 			lbInfo = new Label("Longitud: 0 caracteres");

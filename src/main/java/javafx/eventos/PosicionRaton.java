@@ -13,20 +13,20 @@ import javafx.stage.Stage;
 
 public class PosicionRaton extends Application {
 	
-	private Label lbPosX;
-	private Label lbPosY;
+	private Label lbPosicionX;
+	private Label lbPosicionY;
 	
 	private static final String POS_X = "Posición X:";
 	private static final String POS_Y = "Posición Y:";
 	
-	private void muestraValor(MouseEvent e) {
-		lbPosX.setText(POS_X + e.getX());
-		lbPosY.setText(POS_Y + e.getY());
+	private void mostrarValor(MouseEvent e) {
+		lbPosicionX.setText(POS_X + e.getX());
+		lbPosicionY.setText(POS_Y + e.getY());
 	}
 	
-	private void limpiaValor() {
-		lbPosX.setText(POS_X);
-		lbPosY.setText(POS_Y);
+	private void limpiarValor() {
+		lbPosicionX.setText(POS_X);
+		lbPosicionY.setText(POS_Y);
 	}
 
 	@Override
@@ -43,16 +43,16 @@ public class PosicionRaton extends Application {
 					+ "-fx-border-radius: 5; "
 					+ "-fx-background-color: #cce6ff;"
 					+ "-fx-background-radius: 5");
-			panel.setOnMouseMoved(e -> muestraValor(e));
-			panel.setOnMouseExited(e -> limpiaValor());
+			panel.setOnMouseMoved(this::mostrarValor);
+			panel.setOnMouseExited(e -> limpiarValor());
 			
 			HBox hbValores = new HBox(10);
 			hbValores.setAlignment(Pos.CENTER);
-			lbPosX = new Label();
-			lbPosX.setText(POS_X);
-			lbPosY = new Label();
-			lbPosY.setText(POS_Y);
-			hbValores.getChildren().addAll(lbPosX, lbPosY);
+			lbPosicionX = new Label();
+			lbPosicionX.setText(POS_X);
+			lbPosicionY = new Label();
+			lbPosicionY.setText(POS_Y);
+			hbValores.getChildren().addAll(lbPosicionX, lbPosicionY);
 			
 			raiz.getChildren().addAll(panel, hbValores);
 			

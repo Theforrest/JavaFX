@@ -16,10 +16,11 @@ public class PulsacionesBoton extends Application {
 	private int numPulsaciones = 0;
 	
 	private void botonPulsado() {
-		if (++numPulsaciones == 1)
+		if (++numPulsaciones == 1) {
 			etiqueta.setText("El botón se ha pulsado 1 vez");
-		else
+		} else {
 			etiqueta.setText("El botón se ha pulsado " + numPulsaciones + " veces");
+		}
 	}
 
 	@Override

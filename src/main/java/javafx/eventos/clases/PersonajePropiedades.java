@@ -1,7 +1,5 @@
 package javafx.eventos.clases;
 
-import java.util.Objects;
-
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -12,6 +10,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class PersonajePropiedades {
+	
 	public enum Estrategia {
 		RISA,
 		MALHUMOR,
@@ -77,28 +76,6 @@ public class PersonajePropiedades {
 	public final ObjectProperty<Estrategia> estrategiaProperty() {
 		return estrategia;
 	}
-	
-	@Override
-	public int hashCode() {
-		return Objects.hash(estrategia.get(), nombre.get(), poder.get(), superpoder.get());
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (!(obj instanceof Personaje)) {
-			return false;
-		}
-		PersonajePropiedades other = (PersonajePropiedades) obj;
-		return estrategia.get() == other.estrategia.get() && Objects.equals(nombre.get(), other.nombre.get()) && 
-				poder.get() == other.poder.get() && superpoder.get() == other.superpoder.get();
-	}
-
 
 	public String toString() {
 		return String.format("Nombre: %s, Poder: %d, Superpoder: %b, Estrategia: %s",

@@ -28,15 +28,17 @@ public class TablaPersonajesPropiedadesPersonalizada extends Application {
 			new PersonajePropiedades("El Malo", 0, false, Estrategia.MALHUMOR),
 			new PersonajePropiedades("Gro", 100, false, Estrategia.RISA));
 	
-	private class ConvierteEnteroCadena extends IntegerStringConverter  {
+	private class ConversorEnteroCadena extends IntegerStringConverter  {
 		@Override
 		public Integer fromString(String value) {
+			int entero;
 			try {
-				int entero = Integer.parseInt(value);
-				return (entero < 0 || entero > 100) ? 0 : entero;
+				entero = Integer.parseInt(value);
+				entero = (entero < 0 || entero > 100) ? 0 : entero;
 			} catch (Exception e) {
-				return 0;
+				entero = 0;
 			}
+			return entero;
 		}
     }
 
@@ -69,7 +71,7 @@ public class TablaPersonajesPropiedadesPersonalizada extends Application {
 			cNombre.setOnEditCommit(e -> System.out.println(e.getNewValue()));
 			cPoder.setMinWidth(20);
 			cPoder.setCellValueFactory(fila -> fila.getValue().poderProperty().asObject());
-			cPoder.setCellFactory(fila -> new TextFieldTableCell<>(new ConvierteEnteroCadena()));
+			cPoder.setCellFactory(fila -> new TextFieldTableCell<>(new ConversorEnteroCadena()));
 			cPoder.setOnEditCommit(e -> System.out.println(e.getNewValue()));
 			cSuperpoder.setMinWidth(40);
 			cSuperpoder.setCellValueFactory(fila -> {

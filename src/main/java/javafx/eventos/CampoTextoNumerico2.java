@@ -17,11 +17,10 @@ public class CampoTextoNumerico2 extends Application {
 	private TextField tfNumerico;
 	
 	private void compruebaNumero(String texto) {	
-		if (texto.matches("[0-9]*(\\.[0-9]*)?")) {
+		if (texto.matches("\\d*(\\.\\d*)?")) {
 			lbInfo.setText("Longitud: " + texto.length() + " caracteres");
 			tfNumerico.setStyle("-fx-border-color: green");
-		}
-		else {
+		} else {
 			tfNumerico.setStyle("-fx-border-color: red");
 		}
 	}

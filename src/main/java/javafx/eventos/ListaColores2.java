@@ -43,7 +43,7 @@ public class ListaColores2 extends Application {
 
 	private Pane panel;
 	
-	private void muestraColor(String color) {
+	private void mostrarColor(String color) {
 		panel.setStyle(ESTILO_PANEL + "-fx-background-color: " + color + ";");
 	}
 	
@@ -62,7 +62,7 @@ public class ListaColores2 extends Application {
 			ListView<String> lvColores = new ListView<>(COLORES);
 			lvColores.setPrefWidth(80);
 			lvColores.getSelectionModel().select("Red");
-			lvColores.getSelectionModel().selectedItemProperty().addListener((ov, viejo, nuevo) -> muestraColor(nuevo));
+			lvColores.getSelectionModel().selectedItemProperty().addListener((ov, viejo, nuevo) -> mostrarColor(nuevo));
 			lvColores.setCellFactory(l -> new CeldaColor());
 			hbOpciones.getChildren().addAll(lbElige, lvColores);
 			

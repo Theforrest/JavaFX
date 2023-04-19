@@ -1,15 +1,15 @@
 package javafx.eventos;
 
-import java.awt.Toolkit;
-
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.recursos.LocalizadorRecursos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -17,14 +17,14 @@ public class CampoTextoNumerico1 extends Application {
 	
 	private Label lbInfo;
 	private TextField tfNumerico;
+	private static final AudioClip BEEP = new AudioClip(LocalizadorRecursos.class.getResource("sonidos/beep.mp3").toExternalForm());
 	
 	private void compruebaNumero(String textoAntiguo, String textoNuevo) {	
-		if (textoNuevo.matches("[0-9]*(\\.[0-9]*)?")) {
+		if (textoNuevo.matches("\\d*(\\.\\d*)?")) {
 			lbInfo.setText("Longitud: " + textoNuevo.length() + " caracteres");
-		}
-		else {
+		} else {
 			tfNumerico.setText(textoAntiguo);
-			Toolkit.getDefaultToolkit().beep();
+			BEEP.play();
 		}
 	}
 

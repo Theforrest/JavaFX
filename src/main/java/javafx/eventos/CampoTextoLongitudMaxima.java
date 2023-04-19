@@ -1,15 +1,15 @@
 package javafx.eventos;
 
-import java.awt.Toolkit;
-
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.recursos.LocalizadorRecursos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -18,15 +18,15 @@ public class CampoTextoLongitudMaxima extends Application {
 	private Label lbInfo;
 	private TextField tfTexto;
 	private static final int MAX_CARACTERES = 10;
+	private static final AudioClip BEEP = new AudioClip(LocalizadorRecursos.class.getResource("sonidos/beep.mp3").toExternalForm());
 	
-	private void controlaTamanoTexto(String oldValue) {
+	private void controlaTamanoTexto(String textoAntiguo) {
 		String texto = tfTexto.getText();
 		if (texto.length() <= MAX_CARACTERES) {
 			lbInfo.setText("Longitud: " + texto.length() + " caracteres");
-		}
-		else {
-			tfTexto.setText(oldValue);
-			Toolkit.getDefaultToolkit().beep();
+		} else {
+			tfTexto.setText(textoAntiguo);
+			BEEP.play();
 		}
 	}
 

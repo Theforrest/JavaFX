@@ -18,7 +18,7 @@ public class ValorDeslizador1 extends Application {
 	private ProgressIndicator piValor;
 	private Label lbValor;
 	
-	private void muestraValor(Number valor) {
+	private void mostrarValor(Number valor) {
 		lbValor.setText(String.format("%.2f", valor));
 		pbValor.setProgress(valor.doubleValue()/100);
 		piValor.setProgress(valor.doubleValue()/100);
@@ -36,7 +36,7 @@ public class ValorDeslizador1 extends Application {
 			deslizador.setShowTickMarks(true);
 			deslizador.setMajorTickUnit(50);
 			deslizador.setMinorTickCount(4);
-			deslizador.valueProperty().addListener((observable, oldvalue, newValue) -> muestraValor(newValue));
+			deslizador.valueProperty().addListener((observable, oldvalue, newValue) -> mostrarValor(newValue));
 			
 			HBox hbValores = new HBox(10);
 			hbValores.setAlignment(Pos.CENTER);
