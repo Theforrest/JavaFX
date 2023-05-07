@@ -1,10 +1,9 @@
 package javafx;
 
-import javafx.application.Application;
+import javafx.application.Application; 
 import javafx.fxml.FXMLLoader;
 import javafx.recursos.LocalizadorRecursos;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -17,7 +16,6 @@ public class MainApp extends Application {
 			Scene escena = new Scene(raiz);
 			escenarioPrincipal.setTitle("Ejemplos JavaFX");
 			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCaca.png")));
 			escenarioPrincipal.show();
 		} catch(Exception e) {
 			e.printStackTrace();
